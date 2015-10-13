@@ -8,14 +8,11 @@
     ],
     "pluginsConfig": {
         "shortName": "Openmindclub"
-    }
-}
-
 {
-    "plugins":["disqus"],
-    "pluginsConfig":{
-        "disqus":{
-            "shortName":"soul2867"
+    "plugins": ["disqus"],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "soul2867"
         }
-    }
+    }  
 }
