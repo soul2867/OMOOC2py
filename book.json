@@ -1,8 +1,8 @@
 {
     "plugins":["disqus"],
-    "pluginsConfig":{
-        "disqus":{
-            "shortName":"soul2867"
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "soul2867"
         }
     }
 }
