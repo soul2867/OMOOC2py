@@ -45,12 +45,17 @@
 * 
 建立同名txt文档：main.txt，存放于同一文件夹
 
+ 使输出文件保存在本地文件内
+
 * 
 解包(unpack)参数script，name=argv #script=main.py, name=main.txt
 
 
     from sys import argv
     script, name = argv
+    
+* 文件打开
+     filename = open(name,"r+")
 
 * 
 读取文件
@@ -61,9 +66,51 @@
 
       filename = open(name,"r+")#打开文件
       print filename.read();#打印之前的内容
+      line = raw_input("中文?")#获取输入的内容并保存到line
 
+* 写入文件
 
+      filename.write(line);#写入文件
+    
+    * 出现错误：未写入之前内容
+    
+    ![](QQ截图20151111172637.png)
+    
+  * 加入代码，解决
 
+          filename.write(filename.read());
 
+* 文件关闭（随即检查是否自动保存）
 
+      filename.close()
 
+* 输出内容前有空格
+
+  看其他同学教程，在@hysic's python journey中收获解决方法
+  
+      import os
+      if os.stat(name).st_size != 0:
+  
+* 代码
+
+      # _*_ coding:gbk _*_
+
+      from sys import argv
+      import os
+
+      script, name = argv
+
+      filename = open(name,"r+")#打开文件
+
+      print filename.read();#打印之前的内容
+    
+      line = raw_input("中文?")#获取输入的内容并保存到line
+
+      filename.write(filename.read());#写入之前的
+
+      if os.stat(name).st_size != 0:
+      filename.write("\n");#判断是否为空
+    
+      filename.write(line);#写入新输入的
+
+      filename.close()#保存并关闭文件
