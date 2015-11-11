@@ -49,7 +49,8 @@
 解包(unpack)参数script，name=argv #script=main.py, name=main.txt
 
 
-
+    from sys import argv
+    script, name = argv
 
 
 
