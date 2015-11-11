@@ -52,6 +52,17 @@
     from sys import argv
     script, name = argv
 
+* 
+读取文件
+
+  笨办法习题15：
+  
+  > 使用argv和raw_input来从用户获取文件
+
+      filename = open(name,"r+")#打开文件
+      print filename.read();#打印之前的内容
+
+
 
 
 
