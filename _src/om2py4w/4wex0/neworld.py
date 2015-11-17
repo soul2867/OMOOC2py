@@ -1,11 +1,12 @@
 #/usr/bin/env python
 # -*- coding: utf-8 -*-
+# sys.setdefaultencoding() does not exist, here!import sys reload(sys)  
+# Reload does the trick! sys.setdefaultencoding('UTF8')
 
-from bottle import route, route, request, run, template
-from time import localtime, strftime
+from bottle import route, request, run, template, debug
+from os.path import exists
 import sys
-import sqlite3 #录入数据尚未成功
-
+import time
 
 def read_text(): 
         f = open('main.log', 'a+')
@@ -26,14 +27,28 @@ def neworld():
 
 @route('/neworld', method='POST')
 def write_note():
-     write_content = request.forms.get('write_content')
-     write_text(write_content)
-     mynote=read_text()
+     print 'post'
+     write_content = request.forms.get('notes')
+     print write_content
+
+     if write_content == 'clear':
+        with open('main.log', 'w') as f:
+                     pass
+     else:
+             with open('main.log', 'a+') as f:
+                     print 'open file'
+                     nowtime = time.strftime("%y-%m-%d %H: %M: %S")
+                     note_content = nowtime + '\t' + write_content + '\n'
+                     f.write(note_content)
+
+     mynote = read_text()
+                     
      return template('neworld_note', note=mynote)
 
-@route('/read')
-def read_from_url():
-    return read_note()
+
+if __name__ == "__main__":
+    #debug(True)
+    #run(host='localhost', port=8080, reloader=True)
+    run(host='localhost', port=8080)
 
 
-run(host='localhost', port=8080, debug=True)
