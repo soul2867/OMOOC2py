@@ -29,7 +29,7 @@ def write_note():
      write_content = request.forms.get('write_content')
      write_text(write_content)
      mynote=read_text()
-     return template('neworld', note=mynote)
+     return template('neworld_note', note=mynote)
 
 @route('/read')
 def read_from_url():
