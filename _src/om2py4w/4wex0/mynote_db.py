@@ -7,8 +7,7 @@ db=sqlite3.connect('mynote.db')
 curs=conn. cursor()
 
 db.execute('''CREATE TABLE mynote (time text, note_content text)''')
-db.execute("INSERT INTO mynote VALUES ('2015-11-16', 'hello,')")
-db.execute("INSERT INTO mynote VALUES ('2015-11-16', 'who are you?')")
-db.execute("INSERT INTO mynote VALUES ('2015-11-16', 'Where are you from?')")
+curs.execute("INSERT INTO mynote VALUES ('2015-11-16', 'hello')")
+
 db.commit()
 db.close()
