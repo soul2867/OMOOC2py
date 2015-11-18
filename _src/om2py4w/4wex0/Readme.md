@@ -5,13 +5,13 @@
 * 交互方式：网页和命令行
 
 ### 运行
-#### server
+##### server
 * 运行neworld_server.py
 * 打开浏览器，输入：http://localhost:8080/neworld
 * 在输入框内输入笔记，点击save提交存储
 * 下方显示已输入内容
 
-#### client
+##### client
 * 运行neworld_client.py
 * 根据命令在>>>后输入内容，即可发布于网页
 * 输入q退出程序
