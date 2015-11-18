@@ -11,6 +11,7 @@ import requests
 
 def read_note():
     page = requests.get('http://localhost:8080/neworld')
+    page.decoding = 'utf-8'
     tree = html.fromstring(page.content)
     note_content = tree.xpath('//div[@class="note_content"]/text()')
 
@@ -24,6 +25,8 @@ def write_note(mynote):
 def main():
     while True:
         mynote = raw_input('>>> ')
+        
+        mynote = mynote.decode('gbk')
         
         if mynote == "q":
             print ("Thanks for writing.")
